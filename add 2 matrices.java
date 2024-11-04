@@ -1,12 +1,11 @@
+
 import java.util.Scanner;
 
 public class MatrixAddition {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        
         // Create 2D arrays for matrices
         int[][] arr1, arr2, arr3;
-        
         // Define row and column sizes
         int r1, r2, c1, c2;
         
@@ -30,7 +29,7 @@ public class MatrixAddition {
         arr1 = new int[r1][c1];
         arr2 = new int[r2][c2];
         arr3 = new int[r1][c1];
-        
+
         // Accept elements of the first matrix
         System.out.println("Enter elements for matrix 1:");
         for (int i = 0; i < r1; i++) {
@@ -38,7 +37,7 @@ public class MatrixAddition {
                 arr1[i][j] = scanner.nextInt();
             }
         }
-        
+
         // Accept elements of the second matrix
         System.out.println("Enter elements for matrix 2:");
         for (int i = 0; i < r2; i++) {
@@ -46,30 +45,23 @@ public class MatrixAddition {
                 arr2[i][j] = scanner.nextInt();
             }
         }
-        
+
         // Perform matrix addition
         for (int i = 0; i < r1; i++) {
             for (int j = 0; j < c1; j++) {
                 arr3[i][j] = arr1[i][j] + arr2[i][j];
             }
         }
-        
-        // Display the matrices
-        System.out.println("Matrix 1:");
-        displayMatrix(arr1);
-        System.out.println("Matrix 2:");
-        displayMatrix(arr2);
-        System.out.println("Resultant Matrix:");
-        displayMatrix(arr3);
-    }
-    
-    // Function to display a matrix
-    public static void displayMatrix(int[][] matrix) {
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[0].length; j++) {
-                System.out.print(matrix[i][j] + " ");
+
+        // Display the result of addition
+        System.out.println("Resultant matrix after addition:");
+        for (int i = 0; i < r1; i++) {
+            for (int j = 0; j < c1; j++) {
+                System.out.print(arr3[i][j] + " ");
             }
-            System.out.println();
+            System.out.println(); // Newline for better output format
         }
+        
+        scanner.close(); // Close the scanner resource
     }
 }

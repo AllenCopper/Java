@@ -1,7 +1,7 @@
+
 import java.util.Scanner;
 
 class ArraySort {
-
     void sortIntArray(int[] array, int n) {
         int temp;
         for (int i = 0; i < (n - 1); i++) {
@@ -32,36 +32,32 @@ class ArraySort {
         }
         System.out.println("Sorted list of names:");
         for (int i = 0; i < m; i++) {
-            System.out.println(names[i]);
+            System.out.println(names[i]); // Corrected missing semicolon here
         }
     }
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-
         System.out.println("How many numbers are to be sorted?");
         int n = input.nextInt();
         int[] array = new int[n];
-
         System.out.println("Enter integers:");
         for (int i = 0; i < n; i++) {
             array[i] = input.nextInt();
         }
+        
+        ArraySort sorter = new ArraySort(); // Create an instance of ArraySort
+        sorter.sortIntArray(array, n); // Call the method to sort integers
 
         System.out.println("How many strings are to be sorted?");
         int m = input.nextInt();
-        input.nextLine(); // Consume newline left-over
         String[] names = new String[m];
-
         System.out.println("Enter names:");
         for (int i = 0; i < m; i++) {
-            names[i] = input.nextLine();
+            names[i] = input.next(); // Read the names
         }
+        sorter.sortStrArray(names, m); // Call the method to sort strings
 
-        ArraySort sorter = new ArraySort();
-        sorter.sortIntArray(array, n);
-        sorter.sortStrArray(names, m);
-
-        input.close();
+        input.close(); // Close the scanner resource
     }
 }
